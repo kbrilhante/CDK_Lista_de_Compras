@@ -8,9 +8,9 @@ export function startup() {
     const controlButtons = document.getElementById("controlButtons");
     const divLogin = createDiv(controlButtons, "col-auto", "div-login");
     createButton(divLogin, "Entrar", "btn-primary", "btn-login", logIn);
-    // divLogin.hidden = true;
+    divLogin.hidden = true;
     const divLogout = createDiv(controlButtons, "col-auto", "div-logout");
-    // divLogout.hidden = true;
+    divLogout.hidden = true;
     const divDropdown = createDiv(divLogout, "dropdown");
 
     // dropdown button
@@ -27,9 +27,22 @@ export function startup() {
     profilePicture.id = "profile-picture";
     btnDropdown.appendChild(profilePicture);
 
-    //  <li><hr class="dropdown-divider"></li>
     // dropdown menu
-    
+    const dropdownMenu = document.createElement("ul");
+    dropdownMenu.className = "dropdown-menu";
+    divDropdown.appendChild(dropdownMenu);
+
+    const liNome = document.createElement("li");
+    liNome.className = "px-2"
+    dropdownMenu.appendChild(liNome);
+    createParagraph(liNome, "Olá!", "txt-user");
+    const liDivider = document.createElement("li");
+    liDivider.innerHTML = '<hr class="dropdown-divider">';
+    dropdownMenu.appendChild(liDivider);
+    const liSair = document.createElement("li");
+    dropdownMenu.appendChild(liSair);
+    const btnSair = createButton(liSair, "Sair", "", "btn-logout", logOut);
+    btnSair.className = "dropdown-item";
 
 
 

@@ -49,7 +49,7 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("div-login").hidden = true;
         document.getElementById("div-logout").hidden = false;
         document.getElementById("profile-picture").src = user.photoURL;
-        // document.getElementById("txt-user").innerText = `Olá, ${user.displayName}`
+        document.getElementById("txt-user").innerText = `Olá, ${user.displayName}`;
         
         // AQUI vamos chamar a função para carregar os grupos depois
         // carregarMeusGrupos(user.uid);
