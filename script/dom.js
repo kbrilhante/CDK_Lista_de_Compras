@@ -46,8 +46,8 @@ export function startup() {
 
     // dark/light mode button
     const divMode = document.getElementById("light-dark-mode");
-    const btnMode = createButton(divMode, "", "", "btn-toggle-mode", toggleMode);
-    btnMode.click();
+    createButton(divMode, "", "btn-sm", "btn-toggle-mode", toggleMode);
+    toggleMode();
 }
 
 /**
