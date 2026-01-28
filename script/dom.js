@@ -5,7 +5,7 @@ export function startup() {
     document.title = CONST.TITLE;
     document.getElementById("title").textContent = CONST.TITLE;
 
-    const controlButtons = document.getElementById("controlButtons");
+    const controlButtons = document.getElementById("control-buttons");
     const divLogin = createDiv(controlButtons, "col-auto", "div-login");
     createButton(divLogin, "Entrar", "btn-primary", "btn-login", logIn);
     divLogin.hidden = true;
@@ -43,6 +43,11 @@ export function startup() {
     dropdownMenu.appendChild(liSair);
     const btnSair = createButton(liSair, "Sair", "", "btn-logout", logOut);
     btnSair.className = "dropdown-item";
+
+    // dark/light mode button
+    const divMode = document.getElementById("light-dark-mode");
+    const btnMode = createButton(divMode, "", "", "btn-toggle-mode", toggleMode);
+    btnMode.click();
 }
 
 /**
@@ -97,4 +102,24 @@ function createParagraph(parent, text, id) {
     if (id) p.id = id;
     parent.appendChild(p);
     return p;
+}
+
+function toggleMode() {
+    const tagHTML = document.documentElement;
+    const currentMode = tagHTML.getAttribute("data-bs-theme");
+    const btnMode = document.getElementById("btn-toggle-mode");
+    console.log(currentMode)
+    if (currentMode == "dark") {
+        tagHTML.setAttribute("data-bs-theme", "light");
+        btnMode.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        btnMode.title = "Mudar para modo escuro";
+        btnMode.classList.remove("btn-light");
+        btnMode.classList.add("btn-dark");
+    } else {
+        tagHTML.setAttribute("data-bs-theme", "dark");
+        btnMode.classList.remove("btn-dark");
+        btnMode.classList.add("btn-light");
+        btnMode.innerHTML = '<i class="fa-regular fa-sun"></i>';
+        btnMode.title = "Mudar para modo claro";
+    }
 }
