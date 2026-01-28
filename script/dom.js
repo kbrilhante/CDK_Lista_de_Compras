@@ -43,14 +43,6 @@ export function startup() {
     dropdownMenu.appendChild(liSair);
     const btnSair = createButton(liSair, "Sair", "", "btn-logout", logOut);
     btnSair.className = "dropdown-item";
-
-
-
-    // const divBtnLogoutTxt = createDiv(divLogout, "row");
-    // const p = createParagraph(divBtnLogoutTxt, "Olá, ", "txt-user");
-    // const divBtnLogoutRow = createDiv(divLogout, "row");
-    // const divBtnLogout = createDiv(divBtnLogoutRow, "col-auto mx-auto");
-    // createButton(divBtnLogout, "Sair", "btn-danger", "btn-logout", logOut);
 }
 
 /**
